@@ -132,4 +132,27 @@ const remove = async (req, res) => {
   }
 };
 
-module.exports = { all, findOne, create, update, remove };
+const updateById = async (req, res) => {
+  try {
+    const { email, password, preferenceName } = req.body;
+    const pirateSearch = await tsunnySchema.findById(req.params.id);
+    if (!preferenceName) {
+      res.status(401).json({
+        mensagem: "Unauthorized",
+      });
+    }
+    pirateSearch.preferenceName = preferenceName || pirateSearch.preferenceName;
+    pirateSearch.email = email || pirateSearch.email;
+    pirateSearch.password = password || pirateSearch.password;
+
+    res.status(200).json({
+      mensagem: "Pirate Updated",
+    });
+  } catch (error) {
+    res.status(400).json({
+      mensagem: error.mensagem,
+    });
+  }
+};
+
+module.exports = { all, findOne, create, update, remove, updateById };
