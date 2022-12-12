@@ -14,8 +14,8 @@ const tsunnySchema = mongoose.Schema({
     required: true,
   },
   password: {
-    type: String,
-    required: false,
+    type: Number,
+    required: true,
   },
 });
 

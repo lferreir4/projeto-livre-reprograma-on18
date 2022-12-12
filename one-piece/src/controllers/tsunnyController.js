@@ -133,26 +133,36 @@ const remove = async (req, res) => {
 };
 
 const updateById = async (req, res) => {
-  try {
-    const { email, password, preferenceName } = req.body;
-    const pirateSearch = await tsunnySchema.findById(req.params.id);
-    if (!preferenceName) {
-      res.status(401).json({
-        mensagem: "Unauthorized",
-      });
-    }
-    pirateSearch.preferenceName = preferenceName || pirateSearch.preferenceName;
-    pirateSearch.email = email || pirateSearch.email;
-    pirateSearch.password = password || pirateSearch.password;
+  const { id } = req.params.id;
+  const pirates = await tsunnyModels.findById(id);
+  const pirate = pirates.find((pirates) => pirate.id == id);
 
-    res.status(200).json({
-      mensagem: "Pirate Updated",
-    });
-  } catch (error) {
-    res.status(400).json({
-      mensagem: error.mensagem,
+  if (!pirate) {
+    return response.status(404).send({
+      message: `Pirate's ${id} not found!`,
     });
   }
-};
 
+  const { email, password, preferenceName } = req.body;
+
+  if (typeof preferenceName != "string" || preferenceName.trim() == "")
+    return response.status(400).send({
+      message: "This is a mandatory field",
+    });
+
+  if (typeof email != "string" || email.trim() == "")
+    return response.status(400).send({
+      message: "This is a mandatory field",
+    });
+
+  if (typeof password != "number" || password < 0) {
+    return response.status(400).send("The password must be a number");
+  }
+
+  if (preferenceName) pirate.preferenceName = preferenceName;
+  if (email) pirate.email = email;
+  if (password) pirate.password = pirate;
+
+  response.status(200).send(pirate);
+};
 module.exports = { all, findOne, create, update, remove, updateById };
