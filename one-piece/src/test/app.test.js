@@ -84,19 +84,3 @@ describe("Tsunny Controller", () => {
       .end((err) => done(err));
   });
 });
-test("PATCH /pirates/update/:id", (done) => {
-  const piratesBody = {
-    email: "luff@onepiece.com",
-    preferenceName: "Luffy",
-  };
-  request(app)
-    .patch("/pirates/update/:id" + pirateMock.id)
-    .send(piratesBody)
-    .set("Accept", "application/json")
-    .expect(200)
-    .expect((res) => {
-      expect(res.body.pirate.email).toBe("luffy@onepiece.com");
-      expect(res.body.pirate.preferenceName).toBe("Luffy");
-    })
-    .end((err) => done(err));
-});
