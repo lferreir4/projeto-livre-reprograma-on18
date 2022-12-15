@@ -80,13 +80,13 @@ Pré-requisitos
 | DEV      |              http://localhost:1999               |
 | PRODUÇÃO | https://projeto-livre-reprograma-on18.vercel.app |
 
-### Localhost
+### Apresentação
 
 | Método HTTP | Tipo Rota | Endpoint | Descrição                        |
 | :---------- | :-------: | :------- | :------------------------------- |
 | GET         |  Pública  | /        | Mensagem de apresentação (Index) |
 
-### Rotas perfis
+### Rotas pirates
 
 | Método HTTP | Tipo Rota | Endpoint           | Descrição                            |
 | :---------- | :-------: | :----------------- | :----------------------------------- |
