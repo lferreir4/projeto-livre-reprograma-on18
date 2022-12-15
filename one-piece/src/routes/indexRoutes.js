@@ -4,7 +4,7 @@ router.get("/", (req, res) => {
   res.send({
     version: "1.0",
     title: "One piece project",
-    descrição: "",
+    descrição: "Thousand Sunny sailing",
   });
 });
 
