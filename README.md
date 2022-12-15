@@ -75,18 +75,23 @@ Pré-requisitos
 
 ## Rotas
 
+| Ambiente |                       URL                        |
+| :------- | :----------------------------------------------: |
+| DEV      |              http://localhost:1999               |
+| PRODUÇÃO | https://projeto-livre-reprograma-on18.vercel.app |
+
 ### Localhost
 
-| Método HTTP | Tipo Rota | Endpoint               | Descrição                        |
-| :---------- | :-------: | :--------------------- | :------------------------------- |
-| GET         |  Pública  | http://localhost:1999/ | Mensagem de apresentação (Index) |
+| Método HTTP | Tipo Rota | Endpoint | Descrição                        |
+| :---------- | :-------: | :------- | :------------------------------- |
+| GET         |  Pública  | /        | Mensagem de apresentação (Index) |
 
 ### Rotas perfis
 
-| Método HTTP | Tipo Rota | Endpoint                                | Descrição                            |
-| :---------- | :-------: | :-------------------------------------- | :----------------------------------- |
-| GET         |  Pública  | http://localhost:1999/pirates/all       | Lista de todos os perfis cadastrados |
-| POST        |  Pública  | http://localhost:1999/pirates/create    | Criar perfil                         |
-| DELETE      |  Pública  | http://localhost:1999/pirates/delete/id | Deletar perfil                       |
-| PUT         |  Pública  | http://localhost:1999/pirates/update/id | Alterar perfil                       |
-| GET         |  Pública  | http://localhost:1999/pirates/id        | Procurar perfil por ID               |
+| Método HTTP | Tipo Rota | Endpoint           | Descrição                            |
+| :---------- | :-------: | :----------------- | :----------------------------------- |
+| GET         |  Pública  | /pirates/all       | Lista de todos os perfis cadastrados |
+| POST        |  Pública  | /pirates/create    | Criar perfil                         |
+| DELETE      |  Pública  | /pirates/delete/id | Deletar perfil                       |
+| PUT         |  Pública  | /pirates/update/id | Alterar perfil                       |
+| GET         |  Pública  | /pirates/id        | Procurar perfil por ID               |
